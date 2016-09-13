@@ -6,34 +6,54 @@ public class List {
 
     private Node head = null;
 
+    boolean remove(Node pointer) {
+        Node it = head;
+        Node prev = it;
+        while (it != null) {
+            if (it == pointer) {
+                // found a match now remove
+                prev.setNext(it.getNext());
+                return true;
+            }
+            prev = it;
+            it.setNext(it.getNext());
+        }
+        return false;
+    }
+
+    boolean remove(String data) {
+        Node it = head;
+        Node prev = it;
+        while(it != null){
+            if(it.getData().equals(data)){
+                prev.setNext(it.getNext());
+                return true;
+            }
+        }
+        return false;
+    }
+
     void add(Node item) {
-        if(head == null){
+        if (head == null) {
             head = item;
-        }else{
+        } else {
             item.setNext(head);
             head = item;
         }
     }
 
-    Node last(){
+    Node last() {
         Node it = head;
         Node last = null;
-        while(it != null){
+        while (it != null) {
             last = it;
             it = it.getNext();
         }
         return last;
     }
 
-    Node tail(){
-        Node result = null;
-        if(head != null) {
-            result = head.getNext();
-        }
-        return result;
-    }
-
     Node getHead() {
         return head;
     }
+
 }
