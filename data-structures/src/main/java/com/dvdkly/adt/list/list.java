@@ -34,11 +34,12 @@ public class List {
     }
 
     void add(Node item) {
-        if (head == null) {
+        Node last = last();
+        if(last == null) {
             head = item;
-        } else {
-            item.setNext(head);
-            head = item;
+        }else{
+            last.setNext(item);
+            item.setNext(null);
         }
     }
 
@@ -54,6 +55,18 @@ public class List {
 
     Node getHead() {
         return head;
+    }
+
+    public String toString(){
+        String str = "{";
+        Node ptr = head;
+        while(ptr != null){
+            str += ptr.getData() + ", ";
+            ptr = ptr.getNext();
+        }
+        str = str.substring(0, str.length() - 2);
+        str += "}";
+        return str;
     }
 
 }
