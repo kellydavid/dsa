@@ -1,31 +1,49 @@
 package com.dvdkly.adt.lists;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.*;
+
+import java.util.Arrays;
+import java.util.Collection;
 
 import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
-public class SinglyListTest {
+@RunWith(Parameterized.class)
+public class ListStringTest {
+
+    private List list;
+
+    public ListStringTest(List list){
+        this.list = list;
+    }
+
+    @Parameters(name= "{index}: list implementation({0})")
+    public static Collection<Object[]> data() {
+        return Arrays.asList(new Object[] {new SinglyList<String>()}, new Object[] {new DoublyList<String>()});
+    }
 
     @Test
     public void testListCreation() throws Exception {
-        SinglyList list = new SinglyList();
-        assertTrue(list.getHead() == null);
+        new SinglyList();
+        assertTrue(list.getFirst() == null);
     }
 
     @Test
     public void testInsertFirst() throws Exception {
-        SinglyList<String> list = new SinglyList<>();
+        list = new SinglyList<>();
         list.insertFirst("sample data here");
-        assertTrue(list.getHead() != null);
+        assertTrue(list.getFirst() != null);
         assertEquals("{sample data here}", list.printList());
     }
 
     @Test
     public void testRemoveData() throws Exception {
-        SinglyList<String> list = new SinglyList<>();
+        list = new SinglyList<>();
         list.insertFirst("sample data here");
         assertEquals("{sample data here}", list.printList());
         assertTrue(list.remove("sample data here"));
@@ -34,7 +52,7 @@ public class SinglyListTest {
 
     @Test
     public void testIsEmpty() throws Exception {
-        SinglyList<String> list = new SinglyList();
+        list = new SinglyList();
         assertTrue(list.isEmpty());
         list.insertFirst("dasf");
         list.remove("dasf");
@@ -43,7 +61,7 @@ public class SinglyListTest {
 
     @Test
     public void testGetSize() throws Exception {
-        SinglyList<String> list = new SinglyList();
+        list = new SinglyList();
         assertEquals(list.getSize(), 0);
         list.insertFirst("dasf");
         assertEquals(list.getSize(), 1);
@@ -57,7 +75,7 @@ public class SinglyListTest {
 
     @Test
     public void testFind() throws Exception{
-        SinglyList<String> list = new SinglyList<>();
+        list = new SinglyList<>();
         list.insertFirst("sample1");
         assertTrue(list.find("sample1"));
         list.insertFirst("sample2");
@@ -74,7 +92,7 @@ public class SinglyListTest {
 
     @Test
     public void testRemoveIndex() throws Exception {
-        SinglyList<String> list = new SinglyList<>();
+        list = new SinglyList<>();
         list.insertFirst("sample data here");
         assertEquals("{sample data here}", list.printList());
         assertTrue(list.remove(0));
@@ -85,15 +103,15 @@ public class SinglyListTest {
 
     @Test
     public void testInsertLast() throws Exception {
-        SinglyList<String> list = new SinglyList<>();
+        list = new SinglyList<>();
         list.insertLast("sample data here");
-        assertTrue(list.getHead() != null);
+        assertTrue(list.getFirst() != null);
         assertEquals("{sample data here}", list.printList());
     }
 
     @Test
     public void testMultipleInsertFirst() throws Exception{
-        SinglyList<String> list = new SinglyList<>();
+        list = new SinglyList<>();
         list.insertFirst("sample1");
         assertEquals("{sample1}", list.printList());
         list.insertFirst("sample2");
@@ -106,7 +124,7 @@ public class SinglyListTest {
 
     @Test
     public void testMultipleInsertLast() throws Exception{
-        SinglyList<String> list = new SinglyList<>();
+        list = new SinglyList<>();
         list.insertLast("sample1");
         assertEquals("{sample1}", list.printList());
         list.insertLast("sample2");
@@ -119,7 +137,7 @@ public class SinglyListTest {
 
     @Test
     public void testGet() throws Exception{
-        SinglyList<String> list = new SinglyList<>();
+        list = new SinglyList<>();
         list.insertFirst("sample1");
         assertEquals(list.get(0), "sample1");
         list.insertFirst("sample2");
@@ -133,7 +151,7 @@ public class SinglyListTest {
 
     @Test
     public void testGetFirst() throws Exception{
-        SinglyList<String> list = new SinglyList<>();
+        list = new SinglyList<>();
         list.insertFirst("sample1");
         assertEquals(list.getFirst(), "sample1");
         list.insertFirst("sample2");
@@ -146,7 +164,7 @@ public class SinglyListTest {
 
     @Test
     public void testGetLast() throws Exception{
-        SinglyList<String> list = new SinglyList<>();
+        list = new SinglyList<>();
         list.insertLast("sample1");
         assertEquals(list.getLast(), "sample1");
 
@@ -162,7 +180,7 @@ public class SinglyListTest {
 
     @Test
     public void testMultipleRemoveIndex() throws Exception {
-        SinglyList<String> list = new SinglyList<>();
+        list = new SinglyList<>();
         list.insertLast("sample1");
         list.insertLast("sample2");
         list.insertLast("sample3");
@@ -193,7 +211,7 @@ public class SinglyListTest {
 
     @Test
     public void testMultipleRemoveData() throws Exception {
-        SinglyList<String> list = new SinglyList<>();
+        list = new SinglyList<>();
         list.insertLast("sample1");
         list.insertLast("sample2");
         list.insertLast("sample3");
