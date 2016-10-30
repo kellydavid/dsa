@@ -1,15 +1,15 @@
-package com.dvdkly.dsa.core;
+package com.dvdkly.adt.node;
 
-public class Node{
+public class Node<T>{
 
-    private String data = null;
+    private T data = null;
     private Node next = null;
 
-    public Node(String data){
+    public Node(T data){
         this.data = data;
     }
 
-    public Node getNext() {
+    public Node<T> getNext() {
         return next;
     }
 
@@ -17,11 +17,11 @@ public class Node{
         this.next = next;
     }
 
-    public String getData() {
+    public T getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(T data) {
         this.data = data;
     }
 

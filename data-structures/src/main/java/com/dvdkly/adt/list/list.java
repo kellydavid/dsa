@@ -1,72 +1,28 @@
 package com.dvdkly.adt.list;
 
-import com.dvdkly.dsa.core.Node;
 
-public class List {
+public interface List<T> {
 
-    private Node head = null;
+    int getSize();
 
-    boolean remove(Node pointer) {
-        Node it = head;
-        Node prev = it;
-        while (it != null) {
-            if (it == pointer) {
-                // found a match now remove
-                prev.setNext(it.getNext());
-                return true;
-            }
-            prev = it;
-            it.setNext(it.getNext());
-        }
-        return false;
-    }
+    boolean find(T data);
 
-    boolean remove(String data) {
-        Node it = head;
-        Node prev = it;
-        while(it != null){
-            if(it.getData().equals(data)){
-                prev.setNext(it.getNext());
-                return true;
-            }
-        }
-        return false;
-    }
+    T get(int index);
 
-    void add(Node item) {
-        Node last = last();
-        if(last == null) {
-            head = item;
-        }else{
-            last.setNext(item);
-            item.setNext(null);
-        }
-    }
+    boolean remove(T data);
 
-    Node last() {
-        Node it = head;
-        Node last = null;
-        while (it != null) {
-            last = it;
-            it = it.getNext();
-        }
-        return last;
-    }
+    boolean remove(int index);
 
-    Node getHead() {
-        return head;
-    }
+    void insertFirst(T data);
 
-    public String toString(){
-        String str = "{";
-        Node ptr = head;
-        while(ptr != null){
-            str += ptr.getData() + ", ";
-            ptr = ptr.getNext();
-        }
-        str = str.substring(0, str.length() - 2);
-        str += "}";
-        return str;
-    }
+    void insertLast(T data);
+
+    T getHead();
+
+    T last();
+
+    boolean isEmpty();
+
+    String printList();
 
 }
