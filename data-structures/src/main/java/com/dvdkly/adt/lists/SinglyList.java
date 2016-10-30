@@ -109,6 +109,10 @@ public class SinglyList<T> implements List<T> {
         return false;
     }
 
+    public void clear() {
+        head = null;
+    }
+
     public String printList(){
         String str = "{";
         Node ptr = head;

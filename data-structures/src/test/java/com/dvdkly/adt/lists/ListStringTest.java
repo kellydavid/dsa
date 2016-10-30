@@ -16,7 +16,7 @@ import static org.junit.Assert.assertTrue;
 @RunWith(Parameterized.class)
 public class ListStringTest {
 
-    private List list;
+    private List<String> list;
 
     public ListStringTest(List list){
         this.list = list;
@@ -29,13 +29,13 @@ public class ListStringTest {
 
     @Test
     public void testListCreation() throws Exception {
-        new SinglyList();
+        list.clear();
         assertTrue(list.getFirst() == null);
     }
 
     @Test
     public void testInsertFirst() throws Exception {
-        list = new SinglyList<>();
+        list.clear();
         list.insertFirst("sample data here");
         assertTrue(list.getFirst() != null);
         assertEquals("{sample data here}", list.printList());
@@ -43,7 +43,7 @@ public class ListStringTest {
 
     @Test
     public void testRemoveData() throws Exception {
-        list = new SinglyList<>();
+        list.clear();
         list.insertFirst("sample data here");
         assertEquals("{sample data here}", list.printList());
         assertTrue(list.remove("sample data here"));
@@ -52,7 +52,7 @@ public class ListStringTest {
 
     @Test
     public void testIsEmpty() throws Exception {
-        list = new SinglyList();
+        list.clear();
         assertTrue(list.isEmpty());
         list.insertFirst("dasf");
         list.remove("dasf");
@@ -61,7 +61,7 @@ public class ListStringTest {
 
     @Test
     public void testGetSize() throws Exception {
-        list = new SinglyList();
+        list.clear();
         assertEquals(list.getSize(), 0);
         list.insertFirst("dasf");
         assertEquals(list.getSize(), 1);
@@ -75,7 +75,7 @@ public class ListStringTest {
 
     @Test
     public void testFind() throws Exception{
-        list = new SinglyList<>();
+        list.clear();
         list.insertFirst("sample1");
         assertTrue(list.find("sample1"));
         list.insertFirst("sample2");
@@ -92,7 +92,7 @@ public class ListStringTest {
 
     @Test
     public void testRemoveIndex() throws Exception {
-        list = new SinglyList<>();
+        list.clear();
         list.insertFirst("sample data here");
         assertEquals("{sample data here}", list.printList());
         assertTrue(list.remove(0));
@@ -103,7 +103,7 @@ public class ListStringTest {
 
     @Test
     public void testInsertLast() throws Exception {
-        list = new SinglyList<>();
+        list.clear();
         list.insertLast("sample data here");
         assertTrue(list.getFirst() != null);
         assertEquals("{sample data here}", list.printList());
@@ -111,7 +111,7 @@ public class ListStringTest {
 
     @Test
     public void testMultipleInsertFirst() throws Exception{
-        list = new SinglyList<>();
+        list.clear();
         list.insertFirst("sample1");
         assertEquals("{sample1}", list.printList());
         list.insertFirst("sample2");
@@ -124,7 +124,7 @@ public class ListStringTest {
 
     @Test
     public void testMultipleInsertLast() throws Exception{
-        list = new SinglyList<>();
+        list.clear();
         list.insertLast("sample1");
         assertEquals("{sample1}", list.printList());
         list.insertLast("sample2");
@@ -137,7 +137,7 @@ public class ListStringTest {
 
     @Test
     public void testGet() throws Exception{
-        list = new SinglyList<>();
+        list.clear();
         list.insertFirst("sample1");
         assertEquals(list.get(0), "sample1");
         list.insertFirst("sample2");
@@ -151,7 +151,7 @@ public class ListStringTest {
 
     @Test
     public void testGetFirst() throws Exception{
-        list = new SinglyList<>();
+        list.clear();
         list.insertFirst("sample1");
         assertEquals(list.getFirst(), "sample1");
         list.insertFirst("sample2");
@@ -164,15 +164,13 @@ public class ListStringTest {
 
     @Test
     public void testGetLast() throws Exception{
-        list = new SinglyList<>();
+        list.clear();
         list.insertLast("sample1");
         assertEquals(list.getLast(), "sample1");
-
         list.insertLast("sample2");
         assertEquals("{sample1, sample2}", list.printList());
         assertEquals(list.getLast(), "sample2");
         assertNotEquals(list.getLast(), "sample1");
-
         list.insertLast("sample3");
         assertEquals(list.getLast(), "sample3");
         assertNotEquals(list.getLast(), "sample2");
@@ -180,7 +178,7 @@ public class ListStringTest {
 
     @Test
     public void testMultipleRemoveIndex() throws Exception {
-        list = new SinglyList<>();
+        list.clear();
         list.insertLast("sample1");
         list.insertLast("sample2");
         list.insertLast("sample3");
@@ -211,7 +209,7 @@ public class ListStringTest {
 
     @Test
     public void testMultipleRemoveData() throws Exception {
-        list = new SinglyList<>();
+        list.clear();
         list.insertLast("sample1");
         list.insertLast("sample2");
         list.insertLast("sample3");

@@ -23,6 +23,8 @@ public interface List<T> {
 
     boolean remove(int index);
 
+    void clear();
+
     String printList();
 
 }

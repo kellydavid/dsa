@@ -119,6 +119,10 @@ public class DoublyList<T> implements List<T> {
         }
     }
 
+    public void clear() {
+        head = null;
+    }
+
     public String printList() {
         String str = "{";
         DNode<T> ptr = head;
