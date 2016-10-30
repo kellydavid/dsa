@@ -9,7 +9,7 @@ public class SinglyList<T> extends AbstractList<T> {
         Node it = head;
         while (it != null) {
             size++;
-            it.setNext(it.getNext());
+            it = it.getNext();
         }
         return size;
     }
@@ -19,7 +19,7 @@ public class SinglyList<T> extends AbstractList<T> {
         while (it != null) {
             if (it.getData().equals(data))
                 return true;
-            it.setNext(it.getNext());
+            it = it.getNext();
         }
         return false;
     }
@@ -48,7 +48,7 @@ public class SinglyList<T> extends AbstractList<T> {
 
     public T get(int index) {
         Node<T> it = head;
-        for (int i = 0; i <= index && it != null; i++, it.setNext(it.getNext())) {
+        for (int i = 0; i <= index && it != null; i++, it = it.getNext()) {
             if (i == index) {
                 return it.getData();
             }
