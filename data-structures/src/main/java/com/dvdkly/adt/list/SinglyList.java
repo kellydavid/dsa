@@ -56,33 +56,35 @@ public class SinglyList<T> extends AbstractList<T> {
         Node it = head;
         Node prev = it;
         while (it != null) {
-            prev = it;
             if (it.getData().equals(data)) {
                 if (it == head) {
-                    head = null;
+                    head = it.getNext();
                 } else {
                     prev.setNext(it.getNext());
                 }
+                return true;
             }
-            it.setNext(it.getNext());
+            prev = it;
+            it = it.getNext();
         }
         return false;
     }
 
     public boolean remove(int index) {
         Node<T> it = head;
-        Node prev = null;
-        for (int i = 0; i <= index && it != null; i++, it.setNext(it.getNext())) {
-            prev = it;
+        Node<T> prev = it;
+        for (int i = 0; i <= index && it != null; i++) {
             if (i == index) {
                 // we now have a pointer `it` to the Node at index i
                 if (it == head) {
-                    head = null;
+                    head = it.getNext();
                 } else {
                     prev.setNext(it.getNext());
                 }
                 return true;
             }
+            prev = it;
+            it = it.getNext();
         }
         return false;
     }

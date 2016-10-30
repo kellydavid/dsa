@@ -37,7 +37,9 @@ public abstract class AbstractList<T> implements List<T> {
             str += ptr.getData() + ", ";
             ptr = ptr.getNext();
         }
-        str = str.substring(0, str.length() - 2);
+        if(head != null) {
+            str = str.substring(0, str.length() - 2);
+        }
         str += "}";
         return str;
     }
