@@ -21,16 +21,4 @@ public class Node<T>{
         return data;
     }
 
-    public void setData(T data) {
-        this.data = data;
-    }
-
-    /**
-     * TODO: Implement this method
-     *
-     * @return Printable string representation of node
-     */
-    public static String printableString(){
-        return "";
-    }
 }
