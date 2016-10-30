@@ -1,4 +1,4 @@
-package com.dvdkly.adt.list;
+package com.dvdkly.adt.lists;
 
 import org.junit.Test;
 

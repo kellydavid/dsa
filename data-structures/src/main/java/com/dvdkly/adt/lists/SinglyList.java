@@ -1,4 +1,4 @@
-package com.dvdkly.adt.list;
+package com.dvdkly.adt.lists;
 
 import com.dvdkly.adt.node.Node;
 

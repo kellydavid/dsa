@@ -1,4 +1,4 @@
-package com.dvdkly.adt.list;
+package com.dvdkly.adt.lists;
 
 
 public interface List<T> {
