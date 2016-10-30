@@ -2,7 +2,7 @@ package com.dvdkly.adt.lists;
 
 import com.dvdkly.adt.node.Node;
 
-public abstract class AbstractList<T> implements List<T> {
+abstract class AbstractList<T> implements List<T> {
 
     protected Node<T> head = null;
 
@@ -12,22 +12,8 @@ public abstract class AbstractList<T> implements List<T> {
         return head.getData();
     }
 
-    protected Node<T> getHeadNode(){
-        return head;
-    }
-
     public boolean isEmpty() {
         return head == null;
-    }
-
-    protected Node<T> getLastNode(){
-        Node<T> it = head;
-        Node<T> last = null;
-        while(it != null){
-            last = it;
-            it = it.getNext();
-        }
-        return last;
     }
 
     public String printList(){

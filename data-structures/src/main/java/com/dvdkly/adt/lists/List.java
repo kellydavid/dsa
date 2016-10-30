@@ -5,23 +5,23 @@ public interface List<T> {
 
     int getSize();
 
+    boolean isEmpty();
+
     boolean find(T data);
-
-    T get(int index);
-
-    boolean remove(T data);
-
-    boolean remove(int index);
 
     void insertFirst(T data);
 
     void insertLast(T data);
 
-    T getHead();
+    T get(int index);
 
-    T last();
+    T getFirst();
 
-    boolean isEmpty();
+    T getLast();
+
+    boolean remove(T data);
+
+    boolean remove(int index);
 
     String printList();
 
